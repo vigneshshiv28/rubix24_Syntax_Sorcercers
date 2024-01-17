@@ -1,0 +1,70 @@
+{
+  "name": "urlencode",
+  "version": "2.0.0",
+  "description": "encodeURIComponent with charset",
+  "scripts": {
+    "test": "egg-bin test",
+    "ci": "npm run lint && egg-bin cov && npm run prepublishOnly && npm run benchmark",
+    "lint": "eslint . --ext ts",
+    "benchmark": "node benchmark/urlencode.cjs && node benchmark/urlencode.decode.cjs",
+    "prepublishOnly": "tshy && tshy-after"
+  },
+  "dependencies": {
+    "iconv-lite": "~0.6.3"
+  },
+  "devDependencies": {
+    "@eggjs/tsconfig": "^1.3.3",
+    "@types/mocha": "^10.0.3",
+    "@types/node": "^20.8.7",
+    "beautify-benchmark": "^0.2.4",
+    "benchmark": "^2.1.4",
+    "egg-bin": "^6.5.2",
+    "eslint": "^8.51.0",
+    "eslint-config-egg": "^13.0.0",
+    "git-contributor": "^2.1.5",
+    "tshy": "^1.5.0",
+    "tshy-after": "^1.0.0",
+    "typescript": "^5.2.2"
+  },
+  "homepage": "https://github.com/node-modules/urlencode",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/node-modules/urlencode.git"
+  },
+  "keywords": [
+    "urlencode",
+    "urldecode",
+    "encodeURIComponent",
+    "decodeURIComponent",
+    "querystring",
+    "parse"
+  ],
+  "author": "fengmk2 <fengmk2@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "tshy": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/index.ts"
+    }
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
+      }
+    }
+  },
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
+  "type": "module"
+}
