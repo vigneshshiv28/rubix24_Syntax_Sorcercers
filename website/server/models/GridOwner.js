@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const UserSchema = new mongoose.Schema({
+const GridOwnerSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required: true,
@@ -24,11 +24,13 @@ const UserSchema = new mongoose.Schema({
         required: true,
         min: 8,
     },
-    profileImage: {
+    phoneNumber: {
         type: String,
-        default:"",
+        required: true,
+        min: 10,
+        max: 10,
     },
 },{timestamps: true});
 
-const User = mongoose.model("User",UserSchema);
-export default User;
+const GridOwner = mongoose.model("User",GridOwnerSchema );
+export default GridOwner;
